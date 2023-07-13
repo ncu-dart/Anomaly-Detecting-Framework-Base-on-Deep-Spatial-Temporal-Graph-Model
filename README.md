@@ -1,8 +1,11 @@
-## Anomaly-Detecting-Framework-Base-on-Deep-Spatial-Temporal-Graph-Model
+# Detecting Inaccurate Sensors on a Large-Scale Sensor Network Using Centralized and Localized Graph Neural Networks
 
 ## Introduction
-An Anomaly Detecting Framework Base on DeepSpatial-Temporal Graph Model to detect malfunctioned air quality sensors.
-[Paper Links](https://drive.google.com/file/d/19bCz4iNNMLlOtL3Ro27JT555vrMS_Eew/view)
+An Anomaly Detecting Framework Base on Deep Spatial-Temporal Graph Model to detect inaccurate air quality sensors.
+
+[Paper Link in English](https://in.ncu.edu.tw/~hhchen/academic_works/wu23-detecting.pdf)
+
+[Paper Link in Chinese](https://drive.google.com/file/d/19bCz4iNNMLlOtL3Ro27JT555vrMS_Eew/view)
 
 ## Quickstart
 ### GNN_reg<span></span>.py
@@ -11,10 +14,10 @@ An Anomaly Detecting Framework Base on DeepSpatial-Temporal Graph Model to detec
 Usage:
 ```
 $python GNN_reg.py regression 
-                --name <name of model, You can choose any name> 
-                --model <model type, "gwnet" or "STGCN"> 
+                --name <model name; you can choose any name> 
+                --model <model type: "gwnet" or "STGCN"> 
                 --max_epoch <number of epoch>
-                --use_gpu <weather use gpu>
+                --use_gpu <whether use gpu>
                 --num_nodes <number of graph node>
                 --visual= <show figures during the training process, TRUE or FALSE>
 ```
@@ -35,10 +38,10 @@ $python GNN_reg.py regression
 Usage:
 ```
 $python Global_GNN_reg.py regression 
-                --name <name of model, You can choose any name> 
-                --model <model type, "gwnet" or "STGCN"> 
+                --name <model name; you can choose any name> 
+                --model <model type: "gwnet" or "STGCN"> 
                 --max_epoch <number of epoch>
-                --use_gpu <weather use gpu>
+                --use_gpu <whether use gpu>
                 --num_nodes <number of graph node>
 ```
 Example:
@@ -57,10 +60,10 @@ $python Global_GNN_reg.py regression
 Usage:
 ```
 $python Dep_GNN_reg.py regression 
-                --name <name of model, You can choose any name> 
-                --model <model type, "gwnet" or "STGCN"> 
+                --name <model name; you can choose any name> 
+                --model <model type: "gwnet" or "STGCN"> 
                 --max_epoch <number of epoch>
-                --use_gpu <weather use gpu>
+                --use_gpu <whether use gpu>
                 --num_nodes <number of graph node>
 ```
 Example:
@@ -78,10 +81,10 @@ $python Dep_GNN_reg.py regression
 Usage:
 ```
 $python deep_learning_reg.py regression 
-                --name <name of model, You can choose any name> 
-                --model <model type, "TCN" or "LSTM" or "DNN"> 
+                --name <model name; you can choose any name> 
+                --model <model type: "TCN" or "LSTM" or "DNN"> 
                 --max_epoch <number of epoch>
-                --use_gpu <weather use gpu>
+                --use_gpu <whether use gpu>
 ```
 Example:
 ```
@@ -97,8 +100,8 @@ $python deep_learning_reg.py regression
 Usage:
 ```
 $python machine_learning_reg.py regression 
-                --name <name of model, You can choose any name> 
-                --model <model type, "Lasso" or "Ridge" or "RandomForest"> 
+                --name <model name; you can choose any name> 
+                --model <model type: "Lasso" or "Ridge" or "RandomForest"> 
 ```
 Example:
 ```
@@ -116,11 +119,11 @@ last_three_number, time, bias, device_ID
 ```
 - last_three_number: The last three digits of the air quality sensor's type
 - time: Inspection date of the Air Quality Sensors
-- bias: Whether there is an abnormality, 1 means abnormal, 0 means normal
+- bias: abnormal or normal, 1 means abnormal, 0 means normal
 - device_ID: ID number of the Air Quality Sensors
 
 ### temporal_spatio_pm_2_5_144.gz
-* a gz file store temporal spatio pm2.5 series datas of 144 devices. 
+* a gz file that stores temporal spatio pm2.5 series data of 144 devices. 
 
 data format:
 ```
@@ -132,13 +135,13 @@ time , ID_1, ID_2, ID_3, ... , ID_144
                .
 ```
 ### normalized_laplacian_144.npy
-* a npy file store a normalized laplacian graph matrix with 144 nodes.
+* a npy file that stores a normalized laplacian graph matrix with 144 nodes.
 
 ### temporal_spatio_pm_2_5 
-* a folder contain 144 csv files.
-* each csv file contain temporal spatio pm2.5 series datas of 6 devices.
-* label column mean pm2.5 series datas of the center device
-* ID_1, ID_2, ... , ID_5 means the five nearest devices around center device
+* a folder containing 144 csv files.
+* each csv file contains temporal spatial pm2.5 series data of 6 devices.
+* label column mean pm2.5 series data of the center device
+* ID_1, ID_2, ... , ID_5 means the five nearest devices around the center device
 
 each csv format:
 ```
@@ -151,9 +154,9 @@ time , label, ID_1, ID_2, ... , ID_5
 ```
 
 ### normalized_laplacian
-* a folder contain 144 npy files.
-* each npy file contain store a normalized laplacian graph matrix with 6 nodes.
-* each npy file is the graph structure correspond to the csv file in temporal_spatio_pm_2_5 folder
+* a folder containing 144 npy files.
+* each npy file contains a normalized laplacian graph matrix with 6 nodes.
+* each npy file is the graph structure corresponding to the csv file in temporal_spatio_pm_2_5 folder
 
 ## Project experiment environment  
 - OS：  
@@ -170,7 +173,23 @@ time , label, ID_1, ID_2, ... , ID_5
     - matplotlib: 3.1.2
     - fire: 0.4.0
     - joblib: 1.0.1
-# Reference
+
+## Citation
+Please cite our work if you find our work useful in your research.
+
+```
+@ARTICLE{wu23detecting,
+  author={Wu, Dennis Y. and Lin, Tsu-Heng and Zhang, Xin-Ru and Chen, Chia-Pan and Chen, Jia-Hui and Chen, Hung-Hsuan},
+  journal={IEEE Sensors Journal}, 
+  title={Detecting Inaccurate Sensors on a Large-Scale Sensor Network Using Centralized and Localized Graph Neural Networks}, 
+  year={2023},
+  volume={23},
+  number={15},
+  doi={10.1109/JSEN.2023.3287270}
+}
+```
+
+## Reference
 1. https://github.com/chenyuntc/pytorch-book
 2. https://github.com/nnzhan/Graph-WaveNet
 3. https://github.com/Aguin/STGCN-PyTorch
